@@ -12,11 +12,96 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     
 }
 
+.edit {
+  margin-top: 5px;
+  display: flex;
+  gap: 5px
+}
+.edit .calc-button {
+  flex-basis: 50%;
+}
+
+.main-window {
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+}
+
+.numbers-and-operation {
+  margin-top: 5px;
+}
+
+.numbers-and-operation, .operation{
+  display: flex;
+  gap: 5px;
+}
+
+.numbers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.operation {
+  flex-direction: column;
+}
+
+.input-numbers {
+  border: 1px solid #616161;
+  border-radius: 20px;
+  height: 84px;
+}
 
 .calc-button {
     color: white;
+    border-radius: 20px;
+    background: #333438;
+    height: 42px;
+    width: 89px;
+    font-size: 14px;
+}
+
+.button-equals {
+    color: #1f1f1f;
+    background: #a8c7fa;
+}
+
+.operation .calc-button, .edit .calc-button {
+    color: #eef0ff;
+    background: #2c303d;
+}
+
+.calc-button:active {
+  border: 1px solid #616161;
+}
+
+.button-equals:hover {
+  background: #aecbfa;
+}
+
+.operation .calc-button:hover, .edit .calc-button:hover, .numbers .calc-button:hover{
+    background: #3a3f50;
+}
+
+hr {
+  margin-top: 16px;
+  border: none;
+  border-top: 1px solid #616161;
+  color: #333;
+  overflow: visible;
+  text-align: center;
+  height: 1px;
+}
+
+hr::after {
+  background: rgb(31, 31, 31);
+  content: "rmergeee";
+  color: #616161; 
+  padding: 0 4px;
+  position: relative;
+  top: -13px;
 }
