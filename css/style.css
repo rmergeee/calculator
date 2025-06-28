@@ -87,6 +87,10 @@ body {
     background: #3a3f50;
 }
 
+.numbers .button-equals:hover {
+  background: #aecbfa;
+}
+
 hr {
   margin-top: 16px;
   border: none;
