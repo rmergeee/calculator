@@ -147,7 +147,7 @@ operatorButtons.addEventListener("click", (event) =>{
 
 equelsButton.addEventListener("click", () => {
     if (inputField.textContent === "") return;
-    if (inputField.textContent === "0") {
+    if (inputField.textContent === "0" && operator === "/") {
         alert("На ноль не делим!");
         return;
     }
