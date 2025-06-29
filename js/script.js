@@ -120,7 +120,7 @@ equelsButton.addEventListener("click", () => {
     }
     if (firstNumber === undefined) return;
     secondNumber = inputField.textContent;
-    inputField.textContent = operate(operator, firstNumber, secondNumber);
+    inputField.textContent = Math.round(operate(operator, firstNumber, secondNumber)*1000)/1000;
     
 })
 
