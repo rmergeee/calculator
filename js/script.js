@@ -73,7 +73,6 @@ numberButtons.addEventListener("click", (event) => {
         case "button-dot calc-button":
             if (inputField.textContent === "") break;
             if (inputField.textContent.split("").includes(".")) break;
-            if (inputField.textContent === "0") inputField.textContent = "";
             inputField.textContent += ".";
             break;
     }
@@ -85,29 +84,63 @@ operatorButtons.addEventListener("click", (event) =>{
     switch (target.className) {
         case "button-devide calc-button":
             if (inputField.textContent === "") break;
+            if(firstNumber !== undefined && inputField.textContent !== "") {
+                secondNumber = inputField.textContent;
+                operator = "/"
+                inputField.textContent = Math.round(operate(operator, firstNumber, secondNumber)*1000)/1000;
+                firstNumber = undefined;
+                secondNumber = undefined;
+                operator = undefined;
+                break;
+            }
             firstNumber = inputField.textContent;
             inputField.textContent = "";
             operator = "/"
             break;
         case "button-multiply calc-button":
             if (inputField.textContent === "") break;
+            if(firstNumber !== undefined && inputField.textContent !== "") {
+                secondNumber = inputField.textContent;
+                operator = "*"
+                inputField.textContent = Math.round(operate(operator, firstNumber, secondNumber)*1000)/1000;
+                firstNumber = undefined;
+                secondNumber = undefined;
+                operator = undefined;
+                break;
+            }
             firstNumber = inputField.textContent;
             inputField.textContent = "";
             operator = "*"
             break;
         case "button-minus calc-button":
             if (inputField.textContent === "") break;
-            if (inputField.textContent === "") break;
+            if(firstNumber !== undefined && inputField.textContent !== "") {
+                secondNumber = inputField.textContent;
+                operator = "-"
+                inputField.textContent = Math.round(operate(operator, firstNumber, secondNumber)*1000)/1000;
+                firstNumber = undefined;
+                secondNumber = undefined;
+                operator = undefined;
+                break;
+            }
             firstNumber = inputField.textContent;
             inputField.textContent = "";
             operator = "-"
             break;
         case "button-plus calc-button":
             if (inputField.textContent === "") break;
+            if(firstNumber !== undefined && inputField.textContent !== "") {
+                secondNumber = inputField.textContent;
+                operator = "+"
+                inputField.textContent = Math.round(operate(operator, firstNumber, secondNumber)*1000)/1000;
+                firstNumber = undefined;
+                secondNumber = undefined;
+                operator = undefined;
+                break;
+            }
             firstNumber = inputField.textContent;
             inputField.textContent = "";
             operator = "+"
-            if (inputField.textContent === "") break;
             break;
     }
 })
@@ -121,7 +154,9 @@ equelsButton.addEventListener("click", () => {
     if (firstNumber === undefined) return;
     secondNumber = inputField.textContent;
     inputField.textContent = Math.round(operate(operator, firstNumber, secondNumber)*1000)/1000;
-    
+    firstNumber = undefined;
+    secondNumber = undefined;
+    operator = undefined;
 })
 
 clearButton.addEventListener("click", () => {
