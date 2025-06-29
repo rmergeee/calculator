@@ -9,6 +9,23 @@ const backspace = document.querySelector(".backspace");
 const operatorButtons = document.querySelector(".operation");
 const equelsButton = document.querySelector(".button-equals");
 
+
+function operate(operator, firstNumber, secondNumber) {
+    firstNumber = Number(firstNumber);
+    secondNumber = Number(secondNumber);
+
+    switch (operator) {
+        case "+":
+            return firstNumber + secondNumber;
+        case "-":
+            return firstNumber - secondNumber;
+        case "/":
+            return firstNumber / secondNumber;
+        case "*":
+            return firstNumber * secondNumber;
+    }
+}
+
 numberButtons.addEventListener("click", (event) => {
     let target = event.target;
 
@@ -119,19 +136,3 @@ backspace.addEventListener("click", () => (
                                     .textContent
                                     .slice(0, inputField.textContent.length - 1)
 ));
-
-function operate(operator, firstNumber, secondNumber) {
-    firstNumber = Number(firstNumber);
-    secondNumber = Number(secondNumber);
-
-    switch (operator) {
-        case "+":
-            return firstNumber + secondNumber;
-        case "-":
-            return firstNumber - secondNumber;
-        case "/":
-            return firstNumber / secondNumber;
-        case "*":
-            return firstNumber * secondNumber;
-    }
-}
