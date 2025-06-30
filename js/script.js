@@ -1,6 +1,7 @@
 let firstNumber;
 let secondNumber;
 let operator;
+let result = false;
 
 const numberButtons = document.querySelector(".numbers");
 const inputField = document.querySelector(".input-numbers");
@@ -13,7 +14,7 @@ const equelsButton = document.querySelector(".button-equals");
 function operate(operator, firstNumber, secondNumber) {
     firstNumber = Number(firstNumber);
     secondNumber = Number(secondNumber);
-
+    result = true;
     switch (operator) {
         case "+":
             return firstNumber + secondNumber;
@@ -29,45 +30,43 @@ function operate(operator, firstNumber, secondNumber) {
 numberButtons.addEventListener("click", (event) => {
     let target = event.target;
 
+    if (target.className !== "button-equals calc-button") {
+        if (inputField.textContent === "0" && target.className !== "button-dot calc-button") inputField.textContent = "";
+        if (result === true) {
+            inputField.textContent = "";
+            result = false;
+        }
+    }
+
     switch (target.className) {
         case "num-1 calc-button":
-            if (inputField.textContent === "0") inputField.textContent = "";
             inputField.textContent += 1;
             break;
         case "num-2 calc-button":
-            if (inputField.textContent === "0") inputField.textContent = "";
             inputField.textContent += 2;
             break;
         case "num-3 calc-button":
-            if (inputField.textContent === "0") inputField.textContent = "";
             inputField.textContent += 3;
             break;
         case "num-4 calc-button":
-            if (inputField.textContent === "0") inputField.textContent = "";
             inputField.textContent += 4;
             break;
         case "num-5 calc-button":
-            if (inputField.textContent === "0") inputField.textContent = "";
             inputField.textContent += 5;
             break;
         case "num-6 calc-button":
-            if (inputField.textContent === "0") inputField.textContent = "";
             inputField.textContent += 6;
             break;
         case "num-7 calc-button":
-            if (inputField.textContent === "0") inputField.textContent = "";
             inputField.textContent += 7;
             break;
         case "num-8 calc-button":
-            if (inputField.textContent === "0") inputField.textContent = "";
             inputField.textContent += 8;
             break;
         case "num-9 calc-button":
-            if (inputField.textContent === "0") inputField.textContent = "";
             inputField.textContent += 9;
             break;
         case "button-0 calc-button":
-            if (inputField.textContent === "0") inputField.textContent = "";
             inputField.textContent += 0;
             break;
         case "button-dot calc-button":
